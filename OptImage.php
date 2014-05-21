@@ -50,6 +50,9 @@ class OptImage extends \samson\core\ExternalModule
     /** Module initialization */
     public function init(array $params = array())
     {
+        // TODO: Add control over tools installation
+        // TODO: Add control over tool output/returnval to signal error
+
         // Get web-application supported images
         foreach ($this->getImagesList($this->supported) as $extension => $images) {
 
