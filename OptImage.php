@@ -30,13 +30,13 @@ class OptImage extends \samson\core\ExternalModule
         }
 
         // Iterate gathered namespaces for their resources
-        foreach (s()->load_stack as $ns => & $data) {
+        foreach ($this->system->module_stack as $id => &$module) {
             // Iterate supported images types
             foreach ($supported as $extension) {
                 // If necessary resources has been collected
-                if (isset($data['resources'][ $extension ])) {
+                if (isset($module->resourceMap->$extension)) {
                     // Iterate resources and gather images
-                    foreach ($data['resources'][ $extension ] as & $resource) {
+                    foreach ($module->resourceMap->$extension as & $resource) {
                         $result[$extension][] = $resource;
                     }
                 }
